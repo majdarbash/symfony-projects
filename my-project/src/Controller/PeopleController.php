@@ -17,7 +17,7 @@ class PeopleController extends Controller
 
     /**
      * Matches /people exactly
-     * @Route("/people/{page}", requirements={"page"="\d+"})
+     * @Route("/people/{page}", name="people_list", requirements={"page"="\d+"})
      * @return Response
      */
     public function list($page = 1)
@@ -27,7 +27,7 @@ class PeopleController extends Controller
 
     /**
      * Matches /people/*
-     * @Route("/people/{slug}")
+     * @Route("/people/{slug}", name="people_show")
      * @param $slug
      * @return Response
      */
