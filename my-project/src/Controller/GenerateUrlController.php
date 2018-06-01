@@ -43,4 +43,12 @@ class GenerateUrlController extends Controller
         return new Response($url);
     }
 
+    /**
+     * @Route("/test/twig-url", name="test_twig_url")
+     */
+    public function testUrlInTwig()
+    {
+        return $this->render('/test/url-in-twig.html.twig');
+    }
+
 }
