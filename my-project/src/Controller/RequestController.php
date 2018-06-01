@@ -63,4 +63,27 @@ class RequestController extends Controller
         return new Response('Reading session firstName: ' . $session->get('firstName'));
     }
 
+
+    /**
+     * @Route("/test/flash")
+     */
+    public function testFlash()
+    {
+        $this->addFlash('notice', 'First notice!');
+        $this->addFlash('notice', 'Second notice!');
+
+        return $this->redirectToRoute('test_flash_read');
+    }
+
+    /**
+     * @Route("/test/flash-read", name="test_flash_read")
+     * @param SessionInterface $session
+     * @return Response
+     */
+    public function testFlashRead(SessionInterface $session)
+    {
+        $flashMessage = $session->getFlashBag()->get('notice');
+        return new JsonResponse($flashMessage);
+    }
+
 }
