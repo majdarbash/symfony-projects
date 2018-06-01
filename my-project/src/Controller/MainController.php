@@ -30,4 +30,13 @@ class MainController extends Controller
     {
         return new JsonResponse(['message' => 'this is some Json data'], 200);
     }
+
+    /**
+     * @Route("/test/404")
+     */
+    public function test404()
+    {
+        throw $this->createNotFoundException("The current page does not exist!");
+    }
+
 }
