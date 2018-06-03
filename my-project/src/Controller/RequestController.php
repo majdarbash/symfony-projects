@@ -47,6 +47,24 @@ class RequestController extends Controller
     }
 
     /**
+     * @Route("/test/request-extended-info")
+     */
+    public function testExtendedInfo(Request $request)
+    {
+        $data = [
+            'Is XML Request?' => $request->isXmlHttpRequest() ? 'yes' : 'no',
+            'Preferred Language' => $request->getPreferredLanguage(['en', 'fr']),
+            'Server Host' => $request->server->get('HTTP_HOST'),
+            'Header Host' => $request->headers->get('host'),
+            'Content Type' => $request->headers->get('content_type')
+        ];
+
+        return $this->render('request/info.html.twig', [
+            'data' => $data
+        ]);
+    }
+
+    /**
      * @Route("/test/session")
      */
     public function testSession(SessionInterface $session)

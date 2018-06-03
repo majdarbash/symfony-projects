@@ -32,6 +32,14 @@ class MainController extends Controller
     }
 
     /**
+     * @Route("/test/json-response-short")
+     */
+    public function jsonResponseWithShort()
+    {
+        return $this->json(['message' => 'This is another way to return JSON.']);
+    }
+
+    /**
      * @Route("/test/404")
      */
     public function test404()
