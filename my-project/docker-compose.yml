@@ -1,0 +1,20 @@
+version: '2'
+services:
+  app:
+    container_name: symfony
+    image: majdarbash/nginx
+    volumes:
+    - my_project_nfsmount:/app
+    - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+    - 80:80
+    environment:
+    - XDEBUG_CONFIG="idekey=phpstorm"
+
+volumes:
+  my_project_nfsmount:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: "addr=host.docker.internal,rw"
+      device: ":${SOURCE_DIRECTORY}"
