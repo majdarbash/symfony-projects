@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>{% block title %}Welcome to Symfony!{% endblock %}</title>
+</head>
+<body>
+{% block top_header %}
+    <div>
+        <h1>Here we go symfony!</h1>
+    </div>
+{% endblock %}
+
+<div class="sidebar">
+    {% block sidebar %}
+        <ul>
+            <li>
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+            </li>
+        </ul>
+    {% endblock %}
+</div>
+
+<div class="body">
+    {% block body %}Parent Content{% endblock %}
+</div>
+
+</body>
+</html>
+
+<style type="text/css">
+    .sidebar {
+        width: 20%;
+        float: left;
+    }
+
+    .body {
+        width: 80%;
+        float: left;
+    }
+</style>

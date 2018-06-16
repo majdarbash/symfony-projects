@@ -1,0 +1,20 @@
+{% extends 'parent.html.twig' %}
+
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block sidebar %}
+    <a href="{{ path('homepage') }}">Home</a><br/>
+    <ul id="navigation">
+        {% for item in navigation %}
+            {{ include('twig/item.html.twig') }}
+        {% endfor %}
+    </ul>
+
+    {{ include('twig/block.html.twig', {}) }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h1>This looks like a great template !</h1>
+{% endblock %}
