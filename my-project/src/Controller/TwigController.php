@@ -34,7 +34,8 @@ class TwigController extends Controller
                     'href' => $this->generateUrl('test_twig_template', [], UrlGeneratorInterface::ABSOLUTE_URL),
                     'caption' => 'item 2'
                 ]
-            ]
+            ],
+            'script'=>'<script type="text/javascript">console.log("script is executed")</script>'
         ]);
     }
 

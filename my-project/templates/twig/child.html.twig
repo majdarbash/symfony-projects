@@ -21,4 +21,19 @@
 {% block body %}
     {{ parent() }}
     <h1>This looks like a great template !</h1>
+
+    <div>
+        Output is escaped to prevent XSS injection
+        <pre>
+        {{ script }}
+            </pre>
+    </div>
+
+    <div>
+        Output is not escaped and we use<pre>{ { script|raw } }</pre>
+        {{ script|raw }}
+    </div>
+
+
+
 {% endblock %}
