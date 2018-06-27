@@ -1,6 +1,11 @@
 <html>
 <head>
     <title>{% block title %}Welcome to Symfony!{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet"/>
+    {% endblock %}
+
 </head>
 <body>
 {% block top_header %}
@@ -24,6 +29,10 @@
 <div class="body">
     {% block body %}Parent Content{% endblock %}
 </div>
+
+{% block javascripts %}
+    <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
 
 </body>
 </html>
