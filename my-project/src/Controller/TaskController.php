@@ -38,6 +38,13 @@ class TaskController extends Controller
             ->add('save', SubmitType::class, ['label' => 'Create Task'])
             ->getForm();
 
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $task = $form->getData();
+
+            return $this->redirectToRoute('task_success');
+        }
+
         return $this->render('task/new.html.twig', [
             'form' => $form->createView()
         ]);
